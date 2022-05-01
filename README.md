@@ -1,3 +1,5 @@
+****Please Note:** This website is made as a project website and it's currently not functional.</br>
+
 **Abstract:**</br>
 **_help++_** is a form of internet-enabled fundraising platform. Our primary reason for making this project is to
 come up with a charity crowdfunding platform with the necessary tools for the public to create, fund, and
