@@ -3,7 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs")
 const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const saltRounds = 10;
 
 const app = express()
@@ -13,7 +13,14 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb+srv://Ritesh_Ranka:process.env.PASSWORD@cluster0.yi94a.mongodb.net/userDB",{ useNewUrlParser: true,useUnifiedTopology: true });
+const url = "mongodb+srv://Ritesh_Ranka:"+process.env.PASSWORD+"@cluster0.yi94a.mongodb.net/userDB?retryWrites=true&w=majority";
+mongoose.connect(url,{ useNewUrlParser: true,useUnifiedTopology: true })
+	.then(() => {
+        console.log("Database Connected..");
+    })
+    .catch((err) => {
+        console.log(err);
+    })
 
 const userSchema = new mongoose.Schema({
     username: String,
@@ -385,5 +392,5 @@ app.post("/loginngo", function(req, res){
 
 
 app.listen(process.env.PORT || 3000, function(){
-    console.log("Server started at port 3000");
+    console.log("Server started...");
 });
