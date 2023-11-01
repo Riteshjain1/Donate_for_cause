@@ -2,7 +2,7 @@ import express from "express";
 import bcrypt from "bcryptjs";
 import ejs from "ejs";
 
-import { User, Ngo, Trans } from "../schema/mongoConnection.js";
+import { User, Ngo, Trans } from "../schema/mongoSchema.js";
 import { getDate } from "../helpers/helpers.js";
 
 const router = express.Router();
